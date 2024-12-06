@@ -1,0 +1,42 @@
+body{
+    background-color: #509cd0c4;
+    font-family: arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pierreFeuilleCiseau{
+    background-color: #fff;
+    border-radius: 10px;
+    height: 500px;
+    padding: 30px;
+}
+
+.choix{
+    display: flex;
+    justify-content:space-around;
+}
+.imgChoix{
+    cursor: pointer;
+    border: 2px, solid;
+    border-radius: 5px;
+    background-color: #509cd03d;
+}
+
+h1{
+    width: 900px;
+    height: 70px;
+    font-size: 65px;
+}
+.rafraichir{
+    float:right;
+    cursor: pointer;
+}
+.resultat{
+    text-align: center;
+}
+.score{
+    font-weight: bold;
+    font-size: x-large;
+}
