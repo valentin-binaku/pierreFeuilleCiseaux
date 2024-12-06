@@ -1,2 +1,2 @@
 # pierreFeuilleCiseau
-Jeu pierre feuille ciseau en HTML/CSS/JS
+Jeu pierre feuille ciseaux en HTML/CSS/JS
