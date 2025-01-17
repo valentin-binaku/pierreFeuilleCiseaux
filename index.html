@@ -1,33 +1,47 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset ="UTF-8">
-        <link rel="stylesheet" href="style/style.css">
-        <link rel="icon" href="">
-    </head>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="icon" href="">
+    <title>Pierre, Papier, Ciseaux</title>
+</head>
+<body>
+    <div class="pierreFeuilleCiseau">
+        <div class="titre">
+            <img class="rafraichir" src="image/rafraichir.png" alt="Rafraichir" width="70px" onclick="history.go(0)" />
+            <h1>Pierre, Papier, Ciseaux</h1>
+        </div>
 
-    <body>
-        <div class="pierreFeuilleCiseau">
-            <div class="titre">
-                <img class ="rafraichir"src="image/rafraichir.png" alt="Rafraichir" width="70px" onclick="history.go(0)" />
-                <h1>Pierre, Papier, Ciseaux</h1>
+        <div class="modeDeJeu">
+            <button onclick="choisirMode('bot')">Jouer contre le bot</button>
+            <button onclick="choisirMode('humain')">Jouer contre un humain</button>
+        </div>
+
+        <div id="jeu" style="display:none;">
+            <div class="choix">
+                <img class="imgChoix" src="image/pierre.png" alt="Pierre" width="200" onclick="choisir('Pierre', 1)">
+                <img class="imgChoix" src="image/papier.png" alt="Papier" width="200" onclick="choisir('Feuille', 1)">
+                <img class="imgChoix" src="image/ciseaux.png" alt="Ciseaux" width="200" onclick="choisir('Ciseaux', 1)">
             </div>
 
-            <div class="choix">
-                <img class="imgChoix"src="image/pierre.png" alt="Pierre" width="200" onclick="Pierre()">
-                <img class="imgChoix"src="image/papier.png" alt="Papier" width="200"onclick="Papier()">
-                <img class="imgChoix"src="image/ciseaux.png" alt="Ciseaux" width="200"onclick="Ciseaux()">
+            <div id="joueur2" style="display:none;">
+                <div class="choix">
+                    <img class="imgChoix" src="image/pierre.png" alt="Pierre" width="200" onclick="choisir('Pierre', 2)">
+                    <img class="imgChoix" src="image/papier.png" alt="Papier" width="200" onclick="choisir('Feuille', 2)">
+                    <img class="imgChoix" src="image/ciseaux.png" alt="Ciseaux" width="200" onclick="choisir('Ciseaux', 2)">
+                </div>
             </div>
 
             <div class="resultat">
                 <h3>
-                    votre choix : <span id="tonChoix">Cliquez sur l'image voulu</span><br>
-                    choix de l'ordinateur : <span id="ordiChoix"></span><br><br><br>
-                    <div class="score"><span id="resultat"></div></span>
+                    Choix Joueur 1 : <span id="choixJoueur1">Cliquez sur l'image voulue</span><br>
+                    Choix Joueur 2 : <span id="choixJoueur2"></span><br><br><br>
+                    <div class="score"><span id="resultat"></span></div>
                 </h3>
             </div>
-
         </div>
-        <script src="script/script.js"></script>
-    </body>
+    </div>
+    <script src="script/script.js"></script>
+</body>
 </html>

@@ -1,77 +1,61 @@
+let choixJoueur1 = "";
+let choixJoueur2 = "";
+let modeDeJeu = "";
+
+function choisirMode(mode) {
+    modeDeJeu = mode;
+    resetJeu();
+    document.getElementById("jeu").style.display = "block";
+    if (mode === 'humain') {
+        document.getElementById("joueur2").style.display = "block";
+    } else {
+        document.getElementById("joueur2").style.display = "none";
+    }
+}
+
+function choisir(choix, joueur) {
+    if (joueur === 1) {
+        choixJoueur1 = choix;
+        document.getElementById("choixJoueur1").innerText = "Choix effectué";
+        if (modeDeJeu === 'bot') {
+            choixJoueur2 = ["Feuille", "Pierre", "Ciseaux"][nombreAleatoire(3)];
+            document.getElementById("choixJoueur2").innerText = "Choix effectué";
+            determinerGagnant();
+        }
+    } else {
+        choixJoueur2 = choix;
+        document.getElementById("choixJoueur2").innerText = "Choix effectué";
+        determinerGagnant();
+    }
+}
+
+function determinerGagnant() {
+    const resultat = document.getElementById("resultat");
+
+    if (choixJoueur1 === choixJoueur2) {
+        resultat.innerText = "Match nul !";
+    } else if (
+        (choixJoueur1 === "Feuille" && choixJoueur2 === "Pierre") ||
+        (choixJoueur1 === "Pierre" && choixJoueur2 === "Ciseaux") ||
+        (choixJoueur1 === "Ciseaux" && choixJoueur2 === "Feuille")
+    ) {
+        resultat.innerText = "Joueur 1 a gagné !";
+    } else {
+        resultat.innerText = "Joueur 2 a gagné !";
+    }
+
+    document.getElementById("choixJoueur1").innerText = choixJoueur1;
+    document.getElementById("choixJoueur2").innerText = choixJoueur2;
+}
+
 function nombreAleatoire(max) {
     return Math.floor(Math.random() * max);
-  }
-let ordiAleatoire = 0;
-//Feuille = 0, Pierre = 1, Ciseaux = 2
-function Papier() {
-    ordiAleatoire=nombreAleatoire(3)
-    console.log(ordiAleatoire)
-    papper = document.getElementById("tonChoix");
-    papper.innerText="Feuille";
+}
 
-    if (ordiAleatoire===0){
-        papper = document.getElementById("ordiChoix");
-        papper.innerText="Feuille";
-        resultat = document.getElementById("resultat")
-        resultat.innerText="Match nul ! ";
-    }else if (ordiAleatoire===1){
-        papper = document.getElementById("ordiChoix");
-        papper.innerText="Pierre";
-        resultat = document.getElementById("resultat")
-        resultat.innerText="Vous avez gagné";
-    }else{
-        papper = document.getElementById("ordiChoix");
-        papper.innerText="Ciseaux";
-        resultat = document.getElementById("resultat")
-        resultat.innerText="Vous avez perdu !";
-    }
-  }
-
-  function Pierre() {
-    ordiAleatoire=nombreAleatoire(3)
-    console.log(ordiAleatoire)
-    rock = document.getElementById("tonChoix");
-    rock.innerText="Pierre";
-
-    if (ordiAleatoire===0){
-        rock = document.getElementById("ordiChoix");
-        rock.innerText="Feuille";
-        resultat = document.getElementById("resultat")
-        resultat.innerText="Vous avez perdu !";
-    }else if (ordiAleatoire===1){
-        rock = document.getElementById("ordiChoix");
-        rock.innerText="Pierre";
-        resultat = document.getElementById("resultat")
-        resultat.innerText="Match nul !";
-    }else{
-        rock = document.getElementById("ordiChoix");
-        rock.innerText="Ciseaux";
-        resultat = document.getElementById("resultat")
-        resultat.innerText="Vous avez gagné !";
-    }
-  }
-
-  function Ciseaux() {
-    ordiAleatoire=nombreAleatoire(3)
-    console.log(ordiAleatoire)
-    cisor = document.getElementById("tonChoix");
-    cisor.innerText="Ciseaux"
-
-    if (ordiAleatoire===0){
-        cisor = document.getElementById("ordiChoix");
-        cisor.innerText="Feuille"
-        resultat = document.getElementById("resultat")
-        resultat.innerText="Vous avez gagné !";
-
-    }else if (ordiAleatoire===1){
-        cisor = document.getElementById("ordiChoix");
-        cisor.innerText="Pierre"
-        resultat = document.getElementById("resultat")
-        resultat.innerText="Vous avez perdu !";
-    }else{
-        cisor = document.getElementById("ordiChoix");
-        cisor.innerText="Ciseaux"
-        resultat = document.getElementById("resultat")
-        resultat.innerText="Match nul ! ";   
-    }
-  }
+function resetJeu() {
+    choixJoueur1 = "";
+    choixJoueur2 = "";
+    document.getElementById("choixJoueur1").innerText = "Cliquez sur l'image voulue";
+    document.getElementById("choixJoueur2").innerText = "";
+    document.getElementById("resultat").innerText = "";
+}
